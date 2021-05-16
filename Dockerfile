@@ -7,3 +7,4 @@ COPY . /tmp/
 
 # copy required code
 COPY ./app /app/app
+COPY ./models /app/models

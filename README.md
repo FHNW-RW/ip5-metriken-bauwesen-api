@@ -7,9 +7,23 @@ Das Projekt «Flächenmetriken im Bauwesen» wurde von der Kennwerte AG mit Sitz
 ### Beschreibung
 Dieses Projekt beinhaltet die REST-Schnittstelle (FastAPI) für den Schätzer von Flächen Metriken. 
 
-### Run API
+### Local
+Lokal kann die API mithilfe von Uvicorn wie folgt genutzt werden
+
 ```bash
 uvicorn app.main:app --reload
+```
+
+### Docker
+
+Neues Docker-Image zu bauen
+```bash
+docker build -t metriken-bauwesen-api .
+```
+
+Docker-Image veröffentlichen
+```bash
+docker run --name metriken-bauwesen-container -p 8080:80 metriken-bauwesen-api
 ```
 
 ### Installation
