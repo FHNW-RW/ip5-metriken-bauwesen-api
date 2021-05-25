@@ -8,4 +8,4 @@ class PredictionResult(BaseModel):
 
 class HNFPredictionInputs(BaseModel):
     area_total_floor_416: int
-    area_main_usage: str
+    usage_cluster: str
