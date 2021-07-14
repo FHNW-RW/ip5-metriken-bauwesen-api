@@ -26,6 +26,18 @@ Docker-Image veröffentlichen
 docker run --name metriken-bauwesen-container -p 8080:80 metriken-bauwesen-api
 ```
 
+### Google Cloud
+
+Create Docker images for Google Container Registry
+```bash
+gcloud builds submit --tag gcr.io/metriken-bauwesen-api/{container-name}
+```
+
+Deploy the container image
+```bash
+gcloud run deploy --image gcr.io/metriken-bauwesen-api/{container-name} --platform managed
+```
+
 ### Installation
 
 ```bash

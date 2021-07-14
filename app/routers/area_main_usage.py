@@ -7,13 +7,14 @@ from app.routers.models import HNFPredictionInputs, PredictionResult
 from app.routers import transformer
 
 router = APIRouter(prefix="/hauptnutzflaeche")
-model = load('models/linear_reg_model.joblib')
+model = load('models/fitted_model.joblib')
 
 
 @router.post("/predict", response_model=PredictionResult, tags=["Hauptnutzfläche"])
 async def predict(inputs: HNFPredictionInputs):
     start = time.time()
 
+    # input_df = pipeline.transform(inputs)
     input_df = transformer.transform(inputs)
     prediction = model.predict(input_df)[0]
 

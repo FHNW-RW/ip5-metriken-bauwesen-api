@@ -8,4 +8,7 @@ class PredictionResult(BaseModel):
 
 class HNFPredictionInputs(BaseModel):
     area_total_floor_416: int
+    total_expenses: int
+    volume_total_416: int
+    volume_total_116: int
     usage_cluster: str
