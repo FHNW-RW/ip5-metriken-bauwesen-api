@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
-from .routers import area_main_usage
+from .routers import hauptnutzflaeche
+from .routers import geschossflaeche
 
 app = FastAPI(
     title="Metriken im Bauwesen",
@@ -8,7 +9,8 @@ app = FastAPI(
     description="API zum Schätzen verschiedener Metriken im Bauwesen.",
 )
 
-app.include_router(area_main_usage.router)
+app.include_router(hauptnutzflaeche.router)
+app.include_router(geschossflaeche.router)
 
 
 @app.get("/")
