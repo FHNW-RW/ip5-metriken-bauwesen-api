@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from .routers import hauptnutzflaeche
 from .routers import geschossflaeche
+from .routers import nutzflaeche
 
 app = FastAPI(
     title="Metriken im Bauwesen",
@@ -11,8 +12,4 @@ app = FastAPI(
 
 app.include_router(hauptnutzflaeche.router)
 app.include_router(geschossflaeche.router)
-
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+app.include_router(nutzflaeche.router)

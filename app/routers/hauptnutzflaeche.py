@@ -1,18 +1,23 @@
+from typing import Final
+
 from fastapi import APIRouter
 from joblib import load
 
 from app.models import HNFPredictionInputs, PredictionResult
 from app.routers import transformer
 
-model = load('models/fitted_model.joblib')
-pipeline = load('transformer/fitted_pipeline.joblib')
+MODEL_TYPE: Final = 'GradientBoosting'
+
+# load serialized model/pipeline
+model = load('models/hnf_gb_model.joblib')
+pipeline = load('transformer/hnf_pipeline.joblib')
 
 router = APIRouter(prefix='/hnf')
 
 
-@router.post('/predict', response_model=PredictionResult, tags=['Hauptnutzfläche'])
+@router.post('/predict', response_model=PredictionResult, summary='Schätzen der Hauptnutzfläche (HNF)', tags=['Hauptnutzfläche'])
 async def predict(inputs: HNFPredictionInputs):
     input_df = transformer.transform(pipeline, inputs)
     prediction = model.predict(input_df)[0]
 
-    return PredictionResult(prediction=prediction)
+    return PredictionResult(prediction=prediction, model=MODEL_TYPE)
