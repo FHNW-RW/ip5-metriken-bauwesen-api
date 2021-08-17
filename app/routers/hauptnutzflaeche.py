@@ -9,8 +9,8 @@ from app.routers import transformer
 MODEL_TYPE: Final = 'GradientBoosting'
 
 # load serialized model/pipeline
-model = load('models/hnf_gb_model.joblib')
-pipeline = load('transformer/hnf_pipeline.joblib')
+model = load('data/models/hnf_gb_model.joblib')
+pipeline = load('data/pipelines/hnf_pipeline.joblib')
 
 router = APIRouter(prefix='/hnf')
 

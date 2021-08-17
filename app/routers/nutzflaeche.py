@@ -8,10 +8,9 @@ from app.routers import transformer
 
 MODEL_TYPE: Final = 'GradientBoosting'
 
-# TODO: use real model & pipeline for nf
 # load serialized model/pipeline
-model = load('models/nf_gb_model.joblib')
-pipeline = load('transformer/nf_pipeline.joblib')
+model = load('data/models/nf_gb_model.joblib')
+pipeline = load('data/pipelines/nf_pipeline.joblib')
 
 router = APIRouter(prefix='/nf')
 

@@ -7,10 +7,10 @@ class PredictionResult(BaseModel):
 
 
 class GeneralPredictionInputs(BaseModel):
-    usage_cluster: int = Field(None, title='Cluster der Hauptnutzung')
+    usage_cluster: str = Field(None, title='Cluster der Hauptnutzung')
     total_expenses: int = Field(None, title='Gesamtkosten')
-    volume_total_416: int = Field(None, title='Volumen SIA 416')
-    volume_total_116: int = Field(None, title='Volumen SIA 116')
+    volume_total_416: float = Field(None, title='Volumen SIA 416')
+    volume_total_116: float = Field(None, title='Volumen SIA 116')
     num_floors_underground: int = Field(None, title='Anzahl unterirdischer Stockwerke')
     num_floors_overground: int = Field(None, title='Anzahl oberirdischer Stockwerke')
     garage_combined: float = Field(None, title='Anteil aller Garagen')
